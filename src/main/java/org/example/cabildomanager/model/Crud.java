@@ -5,30 +5,15 @@ import java.sql.*;
 public class Crud {
 
   public static void main(String[] args) {
-    DatabaseConnection dbConnection = new DatabaseConnection();
-    try (Connection connection = DriverManager.getConnection(dbConnection.getURL(),
-            dbConnection.getUSER(), dbConnection.getDbPassword())) {
-      selectData(connection);
+    System.out.println(DatabaseConfig.getDbUser());
 
-
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void selectData(Connection connection) throws SQLException {
-    String sql = "SELECT * FROM Users";
-    try (Statement statement = connection.createStatement();
-         ResultSet resultSet = statement.executeQuery(sql)) {
-      while (resultSet.next()) {
-        System.out.println(resultSet.getString("first_name")
-                + ": "+ resultSet.getString("last_name") );
+    try (Connection conn = DatabaseConnection.getConnection()) {
+      if (conn != null) {
+        System.out.println("✅ Conexión exitosa a la base de datos!");
       }
+    } catch (SQLException e) {
+      System.err.println("❌ Error de conexión: " + e.getMessage());
     }
   }
 
-
-  private void addUser(){
-
-  }
 }

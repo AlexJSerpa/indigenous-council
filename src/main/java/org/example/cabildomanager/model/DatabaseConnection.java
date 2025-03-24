@@ -1,22 +1,16 @@
 package org.example.cabildomanager.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class DatabaseConnection {
 
-    private final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Cabildo;" +
-            "trustServerCertificate=true;";
-    private final String USER = "sa";
-    String dbPassword = System.getenv("DB_PASSWORD");
-    private final String PASSWORD = dbPassword;
+    public static Connection getConnection() throws SQLException {
+        String url = DatabaseConfig.getDbUrl();
+        String user = DatabaseConfig.getDbUser();
+        String password = DatabaseConfig.getDbPassword();
 
-    public String getURL() {
-        return URL;
-    }
-
-    public String getDbPassword() {
-        return PASSWORD;
-    }
-
-    public String getUSER() {
-        return USER;
+        return DriverManager.getConnection(url, user, password);
     }
 }
