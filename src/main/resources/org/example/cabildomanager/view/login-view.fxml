@@ -6,16 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cabildomanager.controller.LoginView">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cabildomanager.controller.LoginController">
    <children>
-      <Label layoutX="435.0" layoutY="61.0" prefHeight="46.0" prefWidth="210.0" text="Iniciar sesión" textAlignment="CENTER">
+      <Label layoutX="424.0" layoutY="74.0" prefHeight="46.0" prefWidth="210.0" text="Iniciar sesión" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="userNameId" layoutX="394.0" layoutY="140.0" prefHeight="46.0" prefWidth="292.0" promptText="Usuario" />
-      <TextField fx:id="passwordId" layoutX="394.0" layoutY="218.0" prefHeight="46.0" prefWidth="292.0" promptText="Contraseña" />
-      <Button fx:id="loginId" layoutX="447.0" layoutY="295.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="187.0" style="-fx-border-radius: 30;" text="Iniciar sesión" />
-      <Button fx:id="changeViewId" layoutX="763.0" layoutY="65.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="187.0" style="-fx-border-radius: 30;" text="Change view" />
+      <TextField fx:id="usernameField" layoutX="365.0" layoutY="136.0" prefHeight="46.0" prefWidth="292.0" promptText="Usuario" />
+      <TextField fx:id="passwordField" layoutX="365.0" layoutY="196.0" prefHeight="46.0" prefWidth="292.0" promptText="Contraseña" />
+      <Button fx:id="loginId" layoutX="417.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="38.0" prefWidth="187.0" style="-fx-border-radius: 30;" text="Iniciar sesión" />
    </children>
 </AnchorPane>
